@@ -1,0 +1,680 @@
+/* reset */
+
+html {
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* glob */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-Bold.eot');
+  src: local('Inter Bold '), local('Inter-Bold'),
+    url('../fonts/Inter-Bold.woff2') format('woff2'),
+    url('../fonts/Inter-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-LightBETA.eot');
+  src: local('Inter Light BETA'), local('Inter-LightBETA'),
+    url('../fonts/Inter-LightBETA.woff2') format('woff2'),
+    url('../fonts/Inter-LightBETA.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-Medium.eot');
+  src: local('Inter Medium'), local('Inter-Medium'),
+    url('../fonts/Inter-Medium.woff2') format('woff2'),
+    url('../fonts/Inter-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-Regular.eot');
+  src: local('Inter Regular'), local('Inter-Regular'),
+    url('../fonts/Inter-Regular.woff2') format('woff2'),
+    url('../fonts/Inter-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra';
+  src: url('FedraSansPro-Medium.eot');
+  src: local('Fedra Sans Pro Medium'), local('FedraSansPro-Medium'),
+    url('../fonts/FedraSansPro-Medium.woff2') format('woff2'),
+    url('../fonts/FedraSansPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra';
+  src: url('FedraSansPro-Book.eot');
+  src: local('Fedra Sans Pro Book'), local('FedraSansPro-Book'),
+    url('../fonts/FedraSansPro-Book.woff2') format('woff2'),
+    url('../fonts/FedraSansPro-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra';
+  src: url('FedraSansPro-Bold.eot');
+  src: local('Fedra Sans Pro Bold'), local('FedraSansPro-Bold'),
+    url('../fonts/FedraSansPro-Bold.woff2') format('woff2'),
+    url('../fonts/FedraSansPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 1280px;
+}
+
+.nav {
+  display: flex;
+  gap: 46px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.btn {
+  padding: 22px 21px;
+  border: none;
+  min-width: 261px;
+  text-align: center;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: none;
+  cursor: pointer;
+}
+
+/* header */
+
+.header {
+  padding: 15px 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.header__contacts a {
+  transition: 0.3s;
+}
+
+.header__contacts a:hover {
+  color: #00B0D5;
+}
+
+.header__contacts--phone {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.48px;
+  color: #566083;
+}
+
+.header__contacts--mail {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.39px;
+  color: #949AB0;
+}
+
+.header__nav {
+  color: #545A58;
+}
+
+.header__nav a {
+  transition: 0.3s;
+}
+
+.header__nav a:hover {
+  color: #00B0D5;
+}
+
+.nav__phone,
+.nav__mail {
+  display: none;
+}
+
+/* burger */
+
+.burger {
+  display: none;
+	width: 21px;
+	height: 21px;
+	position: relative;
+	z-index:2;
+	overflow: hidden;
+}
+.burger span {
+	width: 21px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #222222;
+	transition: all 0.5s;
+}
+.burger span:nth-of-type(2) {
+	top: calc(50% - 8px);
+}
+.burger span:nth-of-type(3) {
+	top: calc(50% + 8px);
+}
+
+/* hero */
+
+.hero {
+  position: relative;
+  margin-bottom: 100px;
+  padding: 140px 0 190px;
+  /* background-image: url(../house-1.png);
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* background: cyan; */
+}
+
+swiper-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__subtitle {
+  position: relative;
+  margin-bottom: 50px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 39px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #FFF;
+  z-index: 2;
+}
+
+.hero__title {
+  position: relative;
+  margin-bottom: 100px;
+  max-width: 60%;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 55px;
+  color: #FFF;
+  z-index: 2;
+}
+
+.hero__btn--view {
+  position: relative;
+  margin-right: 75px;
+  border: 1px solid #FFF;
+  color: #FFF;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.hero__btn--calculate {
+  position: relative;
+  background: #fff;
+  color: #00B0D5;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.hero__btn--calculate>a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__btn--view:hover,
+.hero__btn--calculate:hover {
+  transform: scale(1.1);
+}
+
+/* advantages */
+
+.advantages {
+  margin-bottom: 100px;
+}
+
+.advantages__title {
+  margin-bottom: 35px;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #090B19;
+}
+
+.advantages__content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* margin: 0 auto; */
+}
+
+.advantages__card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 45px 20px 0 40px;
+  /* padding: 35px 50px 0px 40px; */
+  height: 244.5px;
+  width: 244px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  color: #000;
+}
+
+.advantages__icon {
+  width: 71px;
+}
+
+/* project */
+
+.project {
+  margin-bottom: 110px;
+}
+
+.project__content {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 60px 80px;
+  box-shadow: 0px 4px 25px #E2E7F1;
+}
+
+.project__title {
+  margin-bottom: 30px;
+  max-width: 60%;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #000;
+}
+
+.project__descr {
+  margin-bottom: 30px;
+  max-width: 60%;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 24px;
+  color: #343E3D;
+}
+
+.project__subtitle {
+  max-width: 60%;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: #343E3D;
+}
+
+.project__subdescr {
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 24px;
+  color: #343E3D;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.project__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+  /* gap: 5%; */
+}
+
+.project__form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding-top: 30px;
+  min-width: 55%;
+}
+
+.form__input {
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid #E2E7F1;
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 24px;
+  color: #000;
+}
+
+.form__textarea {
+  min-height: 140px;
+}
+
+.uploader {
+  display: flex;
+  flex-direction: column;
+  padding: 45px;
+  border-radius: 10px;
+  min-width: 40%;
+  height: fit-content;
+  background: #F3F6FC;
+}
+
+.uploader__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 60px;
+}
+
+.project__btn--upload {
+  display: flex;
+  justify-content: center;
+  /* width: 100%; */
+  text-align: left;
+  background: #00B0D5;
+  color: #FFF;
+  transition: 0.3s;
+}
+
+.project__btn--upload:hover {
+  background: #90B751;
+}
+
+
+.form__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.form__message {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 35px 45px;
+  border-radius: 9px;
+  border: 2px solid #90B751;
+  box-shadow: -7px 4px 25px 0px #E2E7F1;
+}
+
+.form__message h3 {
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  color: #000;
+}
+
+.form__message p {
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 27px;
+  color: #000;
+}
+
+/* checkbox */
+
+.project__checkbox {
+  margin-bottom: 40px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: #949AB0;
+}
+
+/* для элемента input c type="checkbox" */
+.project__checkbox>input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.project__checkbox>span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.project__checkbox>span::before {
+  content: '';
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 2px;
+  border: 0.8px solid #949AB0;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.project__checkbox>input:disabled+span::before {
+  background-color: #e9ecef;
+}
+
+
+/*  */
+
+.project__btn--send {
+  margin: 0 auto;
+  background: #E2E7F1;
+  color: #FFF;
+  cursor: default;
+  transition: 0.3s;
+}
+
+.project__btn--send.active-send:hover {
+  transform: scale(1.1);
+
+}
+
+/* footer */
+
+.horizont-line {
+  display: block;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 0.5px;
+  background: #B9BED0;
+}
+
+.footer {
+  padding: 50px 0;
+  background: #444858;
+}
+
+.footer-up {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.footer-up__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer__title {
+  font-family: 'Fedra', Helvetica, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #FFF;
+}
+
+.footer__contacts {
+  display: flex;
+  gap: 15px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  color: #FFF;
+}
+
+.footer__contacts label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.footer__contacts a {
+  transition: 0.3s;
+}
+
+.footer__contacts a:hover {
+  color: #00B0D5;
+}
+
+.footer-down {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__descr {
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #9DA0AD;
+}
+
+.footer__nav {
+  color: #FFF;
+}
+
+.footer__nav a {
+  transition: 0.3s;
+}
+
+.footer__nav a:hover {
+  color: #00B0D5;
+}
